@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+
+using namespace std;
+
+void escribir(); // NOMBRAR LA FUNCION
+
+/* CUERPO DEL PROGRAMA SOLO SE LLAMA A LA FUNCION*/
+int main()
+{
+    escribir();
+
+    system("pause");
+    return 0;
+}
+
+// INSTRUCCIONES DE LA FUNCION
+void escribir()
+{
+
+    // PASO 1(SOLO CREAR E INDICAR EL NOMBRE DEL ARCHIVO)
+    ofstream miarchivo;                                // TIPO DE DATO QUE REPRESENTA EL FLUJO PARA CREAR Y SALIR, ESCRIBIR EN EL ARCHIVO
+    miarchivo.open("MI PRIMER ARCHIVO.txt", ios::out); // abrir archivo SI NO existe lo crea y le asigna el nombre escrito dentro de comillas
+
+    //   verificar si existe algun error al abrir el archivo
+
+    if (miarchivo.fail())
+    {
+        cout << "Error al abrir el archivo";
+        exit(1); // salir del programa
+    }
+
+    miarchivo << "HOY ES UN DIA GENIAL"; // texto dentro del archivo
+
+    miarchivo.close(); // cerrar archivo
+}

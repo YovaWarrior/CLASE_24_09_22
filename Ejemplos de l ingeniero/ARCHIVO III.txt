@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+
+using namespace std;
+
+void escribir(); // NOMBRAR LA FUNCION
+
+/* CUERPO DEL PROGRAMA SOLO SE LLAMA A LA FUNCION*/
+int main()
+{
+    escribir();
+
+    system("pause");
+    return 0;
+}
+
+
+
+    // PASO 3 (EL USUARIO NOMBRE AL ARCHIVO Y ESCRIBE EL TEXTO DENTRO DEL ARCHIVO)
+
+    ofstream miarchivo;
+    string nombre_archivo; // para tomar el nombre del archivo
+    string texto_archivo;  // texto en el archivo ingresado por el usuario
+
+    cout << "\nESCRIBE EL NOMBRE PARA EL ARCHIVO:";
+    getline(cin, nombre_archivo);
+    miarchivo.open(nombre_archivo.c_str(), ios::out); // el usuario nombra al archivo
+
+    // verificar si existe algun error al abrir el archivo SERVIRA EN LOS 3 PASOS
+
+    if (miarchivo.fail())
+    {
+        cout << "Error al abrir el archivo";
+        exit(1); // salir del programa
+    }
+
+    cout << "\n ESCRIBE EL TEXTO A GUARDAR EN EL ARCHIVO:"; // texto en pantalla
+    getline(cin, texto_archivo);                            // capturamos lo que el usuario escriba
+
+    miarchivo << texto_archivo; // escribe en el archivo el texto que el usuario escribio anteriormente
+
+    miarchivo.close(); // cerrar archivo
+}  */
